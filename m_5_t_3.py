@@ -1,4 +1,10 @@
-fh = open('log.txt', mode='r', encoding=None, errors=None, closefd=True, )
-all_file = fh.read()
-print(all_file)
-fh.close()
+from pathlib import Path
+
+file_path = input('Введіть шлях до файлу: ')
+path = Path(file_path)
+
+if path.exists() and path.is_file():
+    text = path.read_text()
+    print(text)
+else:
+    print("Файл не знайдено або шлях некоректний.")
